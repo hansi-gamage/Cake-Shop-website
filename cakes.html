@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cake Delight - Our Cakes</title>
+  <style>
+    /* Reset */
+    * 
+  {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff5f8, #ffe0ec);
+      color: #3e2a2a;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff66a4, #ff758c);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(255, 87, 119, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-family: 'Pacifico', cursive;
+      user-select: none;
+      animation: popIn 1s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255,255,255,0.3);
+      transform: scale(1.1);
+    }
+
+    /* Cakes Section */
+    .cakes {
+      padding: 60px 20px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cakes h2 {
+      font-size: 3rem;
+      margin-bottom: 50px;
+      color: #ff4d6d;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 3px #ffbbc4;
+    }
+
+    .cake-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+    }
+
+    .cake-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow:
+        0 6px 15px rgba(255, 77, 109, 0.15),
+        0 10px 30px rgba(255, 77, 109, 0.2);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cake-card:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow:
+        0 12px 30px rgba(255, 77, 109, 0.35),
+        0 20px 50px rgba(255, 77, 109, 0.45);
+    }
+
+    .cake-card img {
+      width: 90%;
+      border-radius: 18px;
+      height: 250px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+      margin-bottom: 18px;
+      transition: transform 0.4s ease;
+    }
+
+    .cake-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .cake-card h3 {
+      color: #ff416c;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .cake-card p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #6b3a4e;
+      line-height: 1.3;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .cake-card button {
+      background: linear-gradient(45deg, #ff416c, #ff4d6d);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 6px 15px rgba(255, 77, 109, 0.6);
+      transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cake-card button:hover,
+    .cake-card button:focus {
+      background: linear-gradient(45deg, #ff5b82, #ff7991);
+      box-shadow: 0 10px 25px rgba(255, 77, 109, 0.9);
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #ff5577, #ff7a89);
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 -3px 10px rgba(255, 77, 109, 0.4);
+      margin-top: auto;
+      user-select: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .cakes h2 {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+      }
+      .cake-card h3 {
+        font-size: 1.3rem;
+      }
+      .cake-card button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🎂 Cakes</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" tabindex="0">Home</a></li>
+        <li><a href="cakes.html" tabindex="0">Cakes</a></li>
+        <li><a href="about.html" tabindex="0">About</a></li>
+        <li><a href="contact.html" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="cakes" role="main">
+    <h2>Explore Our Cakes</h2>
+    <div class="cake-grid" role="list">
+      <article class="cake-card" role="listitem" tabindex="0" aria-label="Chocolate Cake">
+        <img src="Chocolate1.jpg" alt="Chocolate Cake" />
+        <h3>Chocolate Cake</h3>
+        <p>Rich, moist layers with creamy frosting.</p>
+        <button onclick="orderCake('Chocolate Cake')">Order</button>
+      </article>
+
+      <article class="cake-card" role="listitem" tabindex="0" aria-label="Strawberry Cake">
+        <img src="Strawberry1.jpg" alt="Strawberry Cake" />
+        <h3>Strawberry Cake</h3>
+        <p>Fresh strawberries with whipped cream delight.</p>
+        <button onclick="orderCake('Strawberry Cake')">Order</button>
+      </article>
+
+      <article class="cake-card" role="listitem" tabindex="0" aria-label="Vanilla Cake">
+        <img src="cake5.jpg" alt="Vanilla Cake" />
+        <h3>Fruit Cake</h3>
+        <p>Light, fluffy layers with smooth vanilla flavor.</p>
+        <button onclick="orderCake('Vanilla Cake')">Order</button>
+      </article>
+
+      <article class="cake-card" role="listitem" tabindex="0" aria-label="Red Velvet Cake">
+        <img src="cake3.jpg" alt="Red Velvet Cake" />
+        <h3>Red Velvet Cake</h3>
+        <p>Classic red velvet with cream cheese frosting.</p>
+        <button onclick="orderCake('Red Velvet Cake')">Order</button>
+      </article>
+
+      <article class="cake-card" role="listitem" tabindex="0" aria-label="Rainbow Cake">
+        <img src="rainbow.jpg" alt="Rainbow Cake" />
+        <h3>Rainbow Cake</h3>
+        <p>Colorful and fun layers with sweet vanilla.</p>
+        <button onclick="orderCake('Rainbow Cake')">Order</button>
+      </article>
+
+       <article class="cake-card" role="listitem" tabindex="0" aria-label="Red Velvet Cake">
+        <img src="lawa.jpg" alt="Red Velvet Cake" />
+        <h3>Lava Cake</h3>
+        <p>Soft chocolate cake with melted chocolate inside.</p>
+        <button onclick="orderCake('Red Velvet Cake')">Order</button>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cake Heaven. Made with 🍰 and ❤</p>
+  </footer>
+
+ 
+
+</body>
+</html>

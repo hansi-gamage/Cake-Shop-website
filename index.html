@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cakes - Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff5f8, #ffe0ec);
+      color: #3e2a2a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff66a4, #ff758c);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(255, 87, 119, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-family: 'Pacifico', cursive;
+      user-select: none;
+      animation: popIn 1s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255,255,255,0.3);
+      transform: scale(1.1);
+    }
+    .slideshow {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .slide-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .slide-content p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .slide-content button {
+      background: #fff;
+      color: #ff6a88;
+      padding: 12px 25px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .slide-content button:hover {
+      background: #ff6a88;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .cakes {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .cakes h2 {
+      font-size: 2.7rem;
+      margin-bottom: 40px;
+      color: #ff6a88;
+    }
+
+    .cake-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .cake-card {
+      background: linear-gradient(to top left, #ffe0f0, #fffaf0);
+      padding: 20px;
+      width: 270px;
+      border-radius: 20px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .cake-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .cake-card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      transition: transform 0.4s ease;
+    }
+
+    .cake-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .cake-card h3 {
+      margin-bottom: 8px;
+      color: #ff6a88;
+      font-size: 1.2rem;
+    }
+
+    .cake-card p {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: #ff6a88;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-weight: 500;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @media (max-width: 600px) {
+      .slide-content h1 {
+        font-size: 2rem;
+      }
+
+      .cake-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🎂 Cakes</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cakes.html">Cakes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="slideshow">
+    <div class="slide active" style="background-image: url('cake4.jpg');">
+      <div class="slide-content">
+        <h1>Heavenly Chocolate Cakes</h1>
+        <p>Pure joy in every bite 🍫</p>
+        <button onclick="orderNow()">Order Now</button>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('wedding.jpg');">
+      <div class="slide-content">
+        <h1>Colorful Celebration Cakes</h1>
+        <p>Perfect for every moment 🎉</p>
+        <button onclick="orderNow()">Order Now</button>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('Strawberry1.jpg');">
+      <div class="slide-content">
+        <h1>Fluffy Strawberry Cakes</h1>
+        <p>Freshness with every layer 🍓</p>
+        <button onclick="orderNow()">Order Now</button>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('cake5.jpg');">
+      <div class="slide-content">
+        <h1>Fluffy Fruit Cakes</h1>
+        <p>Freshness with every layer 🍓</p>
+        <button onclick="orderNow()">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cakes">
+    <h2>Our Favorite Picks</h2>
+    <div class="cake-grid">
+      <div class="cake-card">
+        <img src="double choco.jpg" alt="Chocolate Cake">
+        <h3>Double Choco Delight</h3>
+        <p>Rich layers of chocolate & fudge</p>
+      </div>
+      <div class="cake-card">
+        <img src="rainbow1.jpg" alt="Rainbow Cake">
+        <h3>Rainbow Sprinkle Cake</h3>
+        <p>Vibrant, sweet, and colorful treat</p>
+      </div>
+
+      <div class="cake-card">
+        <img src="lawa.jpg" alt="Rainbow Cake">
+        <h3>Molten Lava Cake</h3>
+        <p>Chocolate Lava Cake</p>
+      </div>
+      <div class="cake-card">
+        <img src="Strawberry1.jpg" alt="Strawberry Cake">
+        <h3>Strawberry Swirl</h3>
+        <p>Sweet strawberries & whipped cream</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Cake Heaven. Made with 🍰 and ❤
+  </footer>
+
+  <script>
+    function orderNow() {
+      alert("Redirecting to order page...");
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+      });
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 4000);
+  </script>
+
+</body>
+</html>

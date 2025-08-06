@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Cake Delight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff5f8, #ffe0ec);
+      color: #3e2a2a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff66a4, #ff758c);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(255, 87, 119, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+   .logo {
+      font-size: 2rem;
+      font-family: 'Pacifico', cursive;
+      user-select: none;
+      animation: popIn 1s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255,255,255,0.3);
+      transform: scale(1.1);
+    }
+
+    .contact-section {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 40px 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-section h2 {
+      font-size: 2.5rem;
+      color: #f06292;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .contact-section p {
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      color: #6c4f4f;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #f06292;
+      outline: none;
+      box-shadow: 0 0 5px rgba(240, 98, 146, 0.3);
+    }
+
+    button {
+      background-color: #f06292;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #ec407a;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #f06292;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .contact-section {
+        margin: 30px 20px;
+        padding: 30px 20px;
+      }
+
+      .contact-section h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🎂 Cakes</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cakes.html">Cakes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" style="background: rgba(255,255,255,0.2);">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you! Fill out the form below and we’ll get back to you soon.</p>
+
+    <form onsubmit="submitForm(event)">
+      <input type="text" name="name" placeholder="👤 Your Name" required />
+      <input type="email" name="email" placeholder="📧 Your Email" required />
+      <input type="text" name="subject" placeholder="📝 Subject" required />
+      <textarea name="message" rows="5" placeholder="💬 Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cake Heaven. Made with 🍰 and ❤</p>
+  </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      alert("🎉 Thank you! Your message has been received.");
+      event.target.reset();
+    }
+  </script>
+
+</body>
+</html>
